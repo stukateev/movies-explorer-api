@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
-
+const { UnauthorizedError } = require('../utils/errors');
 
 const userSchema = new mongoose.Schema(
   {
     name: {
       type: String,
       minlength: 2,
-      maxlength: 30
+      maxlength: 30,
     },
     email: {
       type: String,
@@ -44,4 +44,4 @@ userSchema.statics.findUserByCredentials = function findUserByCredentials(email,
     });
 };
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('user', userSchema);
