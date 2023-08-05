@@ -64,13 +64,14 @@ const login = (req, res, next) => {
           : 'secret_key_num',
         { expiresIn: '7d' },
       );
-      res
-        .cookie('jwt', token, {
-          maxAge: 3600000 * 24 * 7,
-          httpOnly: true,
-          sameSite: 'none',
-          secure: true,
-        })
+      res.send({
+        token: token,
+        user: {
+          email: user.email,
+          _id: user._id,
+          name: user.name,
+        },
+      })
         .json({ message: `Welcome back, ${user.name}` });
     })
     .catch((err) => {
