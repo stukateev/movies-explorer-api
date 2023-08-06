@@ -1,6 +1,10 @@
 const allowedCors = [
   'localhost:3000',
   'http://localhost:3000',
+  "https://film-find.nomoredomains.work",
+  "http://film-find.nomoredomains.work",
+  "https://api.film-find.nomoredomains.work",
+  "http://api.film-find.nomoredomains.work"
 ];
 
 module.exports = (req, res, next) => {
